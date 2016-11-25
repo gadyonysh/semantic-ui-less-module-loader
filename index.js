@@ -1,6 +1,7 @@
 var path = require('path');
 var lessLoader = require('less-loader');
 var loaderUtils = require('loader-utils');
+var assign = require('lodash.assign');
 
 var themeConfigPattern = /^\.\.\/\.\.\/theme.config$/;
 var themePattern = /^\.\/theme\.less/;
@@ -20,13 +21,16 @@ module.exports = function (source, map)
 
   config.defaultFolder = config.defaultFolder || semanticUiLessRoot;
   
-  config = Object.assign({
-    definitionsFolder: path.join(config.defaultFolder, 'definitions'),
-    siteFolder: path.join(config.defaultFolder, '_site'),
-    themeConfigPath: path.join(config.defaultFolder, 'theme.config.example'),
-    themePath: path.join(config.defaultFolder, 'theme.less'),
-    themesFolder: path.join(config.defaultFolder, 'themes')
-  }, config);
+  config = assign(
+    {
+      definitionsFolder: path.join(config.defaultFolder, 'definitions'),
+      siteFolder: path.join(config.defaultFolder, '_site'),
+      themeConfigPath: path.join(config.defaultFolder, 'theme.config.example'),
+      themePath: path.join(config.defaultFolder, 'theme.less'),
+      themesFolder: path.join(config.defaultFolder, 'themes')
+    },
+    config
+  );
 
   var originalResolve = this.resolve;
 

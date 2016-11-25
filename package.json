@@ -25,6 +25,7 @@
   "dependencies": {
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "loader-utils": "^0.2.16"
+    "loader-utils": "^0.2.16",
+    "lodash.assign": "^4.2.0"
   }
 }
