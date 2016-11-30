@@ -14,15 +14,29 @@ npm install semantic-ui-less-module-loader --dev
 
 ### Configuration
 
-Add loader for semantic-ui-less modules in your webpack config:
+Add loaders for semantic-ui-less modules and it's assets in your webpack config:
 
 ```js
 module: {
   loaders: [
+
+    // less-loader
     {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract('style', 'css?!postcss!semantic-ui-less-module'),
-      include: [/node_modules[\/\\]semantic-ui-less/]
+      include: [/[\/\\]node_modules[\/\\]semantic-ui-less[\/\\]/]
+    },
+
+    // loader for static assets
+    {
+      test: /\.(png|jpg|jpeg|gif|svg)$/,
+      loader: 'url?limit=10240&absolute&name=images/[path][name]-[hash:7].[ext]',
+      include: [/[\/\\]node_modules[\/\\]semantic-ui-less[\/\\]/]
+    },
+    {
+      test: /\.(woff|woff2|ttf|svg|eot)$/,
+      loader: 'url?limit=10240&name=fonts/[name]-[hash:7].[ext]',
+      include: [/[\/\\]node_modules[\/\\]semantic-ui-less[\/\\]/]
     }
   ]
 },
@@ -42,3 +56,14 @@ semanticUiLessModuleLoader: {
 - themesFolder (default: ${defaultFolder}/themes)
 - themeConfigPath (default: ${defaultFolder}/theme.config.example)
 - themePath (default: ${defaultFolder}/theme.less)
+
+#### To fix https://github.com/Semantic-Org/Semantic-UI-LESS/issues/14
+
+Add to your site/globals/site.variables:
+
+```less
+
+@imagePath : '../assets/images';
+@fontPath  : '../assets/fonts';
+
+```
