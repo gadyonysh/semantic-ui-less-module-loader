@@ -5,7 +5,7 @@ var assign = require('lodash.assign');
 
 var themeConfigPattern = /^\.\.\/\.\.\/theme.config$/;
 var themePattern = /^\.\/theme\.less/;
-var folderPattern = /^\.\.\/(site|definitions|themes)(?=\/)/;
+var folderPattern = /^\.\/(site|definitions|themes)(?=\/)/;
 var semanticUiLessRoot = path.dirname(
   require.resolve('semantic-ui-less/package.json')
 );
