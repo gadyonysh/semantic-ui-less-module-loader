@@ -14,6 +14,13 @@ npm install semantic-ui-less-module-loader --dev
 
 ### Configuration
 
+Add to your root js component:
+
+```js
+import 'semantic-ui-less/definitions/globals/reset.less';
+import 'semantic-ui-less/definitions/globals/site.less';
+```
+
 Add loaders for semantic-ui-less modules and it's assets in your webpack config:
 
 ```js
