@@ -64,6 +64,16 @@ semanticUiLessModuleLoader: {
 - themeConfigPath (default: ${defaultFolder}/theme.config.example)
 - themePath (default: ${defaultFolder}/theme.less)
 
+#### To fix flag @spritePath in default theme:
+
+Add to your site/elements/flag.variables:
+
+```less
+
+@spritePath: "../../themes/default/assets/images/flags.png";
+
+```
+
 #### To fix https://github.com/Semantic-Org/Semantic-UI-LESS/issues/14
 
 Add to your site/globals/site.variables:
