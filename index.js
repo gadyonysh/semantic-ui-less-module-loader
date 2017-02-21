@@ -17,7 +17,11 @@ module.exports = function (source, map)
     this.cacheable();
   }
 
-  var config = loaderUtils.getLoaderConfig(this, 'semanticUiLessModuleLoader');
+  var options = (typeof loaderUtils.getOptions === 'function' && loaderUtils.getOptions(this))
+    || (typeof loaderUtils.getLoaderConfig === 'function' && loaderUtils.getLoaderConfig(this, 'semanticUiLessModuleLoader'))
+    || {};
+
+  var config = assign({}, options);
 
   config.defaultFolder = config.defaultFolder || semanticUiLessRoot;
   
