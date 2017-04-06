@@ -9,7 +9,7 @@ Can be used with [semantic-ui-react-less-loader](https://github.com/gadyonysh/se
 
 ```js
 npm install semantic-ui-react semantic-ui-less --save-dev
-npm install semantic-ui-less-module-loader --dev
+npm install semantic-ui-less-module-loader --only=dev
 ```
 
 ### Configuration
