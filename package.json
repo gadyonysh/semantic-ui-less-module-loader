@@ -24,8 +24,8 @@
   "homepage": "https://github.com/gadyonysh/semantic-ui-less-module-loader#readme",
   "dependencies": {
     "less": "^2.7.2",
-    "less-loader": "^2.2.3",
-    "loader-utils": "^1.0.2",
+    "less-loader": "^4.0.2",
+    "loader-utils": "^1.1.0",
     "lodash.assign": "^4.2.0"
   }
 }
